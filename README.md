@@ -1,5 +1,5 @@
 # UploadDragNDrop
-jquery plugin for uploading files by drag n drop
+JQuery plugin for uploading files by drag n drop.
 
 #Usage
 ```
@@ -86,7 +86,7 @@ $('#dropZone').uploadDragNDrop({
 </body>
 </html>
 ```
-you can see example here: http://xn--c1abmgrdmpk4e.xn--p1ai/javascript/uploadjs/
+You can see this example here: http://xn--c1abmgrdmpk4e.xn--p1ai/javascript/uploadjs/
 
 ##server side (PHP):
 ```

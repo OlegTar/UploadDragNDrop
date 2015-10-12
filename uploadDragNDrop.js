@@ -91,7 +91,7 @@
 				settings: settings
 			};			
 			xhr.onreadystatechange = stateChange.bind(obj);
-			xhr.open('POST', 'upload.php');
+			xhr.open('POST', settings['upload']);
 			xhr.send(formData);
 		});
 		return this;

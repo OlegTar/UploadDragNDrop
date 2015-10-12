@@ -7,6 +7,17 @@ $('#dropZone').uploadDragNDrop({
 	'upload' : 'upload.php', 
 });
 ```
+##parameters:
+* upload — url for uploading files
+* hoverCssClass - css class when you drag file over html element
+* errorCssClass - css class when error happens (also you can define own error handler function)
+* maxFileSize - max size of file
+* uploadProgressHandler - function for showing progress, *this* is jquery object for drag'n'drop element, formal parameter is event, event.loaded - loaded bytes, event.total - total bytes
+* okHandler - handler when uploading is successful, *this* is jquery object for drag'n'drop element, formal parameter is Settings object
+* errorHandler - handler when uploading is successful, *this* is jquery object for drag'n'drop element, first formal parameter is Settings object, second is type of error:
+	1. $.fn.uploadDragNDrop.errors.FILE_IS_TOO_BIG - file is too big
+	2. $.fn.uploadDragNDrop.errors.UPLOAD_ERROR - upload error
+
 ##Full example:
 ```
 <!DOCTYPE html>

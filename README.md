@@ -7,7 +7,7 @@ $('#dropZone').uploadDragNDrop({
 	'upload' : 'upload.php', 
 });
 ```
-##parameters:
+##Parameters:
 * upload — url for uploading files
 * hoverCssClass - css class when you drag file over html element
 * errorCssClass - css class when error happens (also you can define own error handler function)
@@ -88,7 +88,7 @@ $('#dropZone').uploadDragNDrop({
 ```
 You can see this example here: http://xn--c1abmgrdmpk4e.xn--p1ai/javascript/uploadjs/
 
-##server side (PHP):
+##Server side (PHP):
 ```
 <?php
 $uploaddir = getcwd().DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR;

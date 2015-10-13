@@ -88,7 +88,7 @@ $('#dropZone').uploadDragNDrop({
 ```
 You can see this example here: http://xn--c1abmgrdmpk4e.xn--p1ai/javascript/uploadjs/
 
-##Server side (PHP):
+#Server Side Example (PHP):
 ```
 <?php
 $uploaddir = getcwd().DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR;

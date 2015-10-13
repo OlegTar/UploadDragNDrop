@@ -2,7 +2,7 @@
 JQuery plugin for uploading files by drag n drop.
 
 #Usage
-```
+```javascript
 $('#dropZone').uploadDragNDrop({
 	'upload' : 'upload.php', 
 });
@@ -19,7 +19,7 @@ $('#dropZone').uploadDragNDrop({
 	2. ``` $.fn.uploadDragNDrop.errors.UPLOAD_ERROR ``` - upload error
 
 ##Full example:
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,7 +89,7 @@ $('#dropZone').uploadDragNDrop({
 You can see this example here: http://xn--c1abmgrdmpk4e.xn--p1ai/javascript/uploadjs/
 
 #Server Side Example (PHP):
-```
+```php
 <?php
 $uploaddir = getcwd().DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR;
 $uploadfile = $uploaddir.basename($_FILES['file']['name']);

@@ -4,7 +4,7 @@
 		this.text('Loading: ' + percent + '%');
 	}
 	
-	function defaultOkHandler(settings) {
+	function defaultOkHandler(responseText, settings) {
 		this.text('Done!');
 		
 		if (settings['errorCssClass'] !== '') {
@@ -33,7 +33,7 @@
 			delete this['$element'];
 			
 			if (event.target.status == 200) {			
-				this['settings']['okHandler'].call($element, this['settings']);
+				this['settings']['okHandler'].call($element, event.target.responseText, this['settings']);
 			} else {				
 				this['settings']['errorHandler'].call($element, this['settings'], $.fn.uploadDragNDrop.errors.UPLOAD_ERROR);
 			}
@@ -48,13 +48,17 @@
 			'uploadProgressHandler': defaultUploadProgress,
 			'okHandler': defaultOkHandler,
 			'errorHandler': defaultErrorHandler,
+			'paramName': 'file'
 		}, options);			
 		
 		if (typeof settings['upload'] !== 'string') {
 			throw('uploadDragNDrop: upload is not set');
 		}
 
-		this.bind('dragover', function () {
+		this.bind('dragover', function (event) {
+			if (!event.originalEvent.dataTransfer.types.contains("Files")) {
+				return false;
+			}
 			if (settings['hoverCssClass'] !== '') {
 				$(this).addClass(settings['hoverCssClass']);
 			}
@@ -75,6 +79,9 @@
 			}
 			
 			var file = event.originalEvent.dataTransfer.files[0];
+			if (file === undefined) {
+				return false;
+			}
         
 			if (file.size > settings['maxFileSize']) {
 				settings['errorHandler'].call($(this), settings, $.fn.uploadDragNDrop.errors.FILE_IS_TOO_BIG);
@@ -82,7 +89,7 @@
 			}
 			
 			var formData = new FormData();
-			formData.append('file', file);
+			formData.append(settings['paramName'], file);
 			
 			var xhr = new XMLHttpRequest();
 			xhr.upload.addEventListener('progress', settings['uploadProgressHandler'].bind($(this)), false);

@@ -1,4 +1,4 @@
-# UploadDragNDrop
+# UploadDragNDrop 1.1
 JQuery plugin for uploading files by drag n drop.
 
 #Usages

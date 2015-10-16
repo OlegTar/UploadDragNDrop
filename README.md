@@ -45,7 +45,7 @@ $('#dropZone').uploadDragNDrop({
 	* **this** is jquery object for drag'n'drop element 
 * ``` paramName ``` - parameter name in http request of file attachment *(optional, default: 'file')*
 
-##Full example:
+##Full example
 ```html
 <!DOCTYPE html>
 <html>
@@ -115,7 +115,7 @@ $('#dropZone').uploadDragNDrop({
 ```
 You can see this example here: http://xn--c1abmgrdmpk4e.xn--p1ai/javascript/uploadjs/
 
-#Server Side Example (PHP):
+#Server Side Example (PHP)
 ```php
 <?php
 $uploaddir = getcwd().DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR;

@@ -1,22 +1,49 @@
 # UploadDragNDrop
 JQuery plugin for uploading files by drag n drop.
 
-#Usage
+#Usages
 ```javascript
 $('#dropZone').uploadDragNDrop({
 	'upload' : 'upload.php', 
 });
 ```
-##Parameters:
-* ``` upload ``` — url for uploading files
-* ``` hoverCssClass ``` - css class when you drag file over html element
-* ``` errorCssClass ``` - css class when error happens (also you can define own error handler function)
-* ``` maxFileSize ``` - max size of file
-* ``` uploadProgressHandler ``` - function for showing progress, ***this*** is jquery object for drag'n'drop element, formal parameter is event, event.loaded - loaded bytes, event.total - total bytes
-* ``` okHandler ``` - handler when uploading is successful, ***this*** is jquery object for drag'n'drop element, formal parameter is Settings object
-* ``` errorHandler ``` - handler when uploading is successful, ***this*** is jquery object for drag'n'drop element, first formal parameter is Settings object, second is type of error:
-	1. ``` $.fn.uploadDragNDrop.errors.FILE_IS_TOO_BIG ``` - file is too big
-	2. ``` $.fn.uploadDragNDrop.errors.UPLOAD_ERROR ``` - upload error
+```javascript
+$('#dropZone').uploadDragNDrop({
+	'upload' : 'upload.php', 
+	'okHandler' : function (settings) {					
+		this.text('File has been uploaded!');
+	}
+});
+```
+```javascript
+$('#dropZone').uploadDragNDrop({
+	'upload' : 'upload.php', 
+	'maxFileSize' : 5000000,
+	'hoverCssClass' : 'myHoverClass',
+	'okHandler' : function (settings) {					
+		this.text('File has been uploaded!');
+	}
+});
+```
+##Parameters
+* ``` upload ``` — url for uploading files, *requrired*
+* ``` hoverCssClass ``` - css class when you drag file over html element *(optional, default: '')*
+* ``` errorCssClass ``` - css class when error happens (also you can define own error handler function) *(optional, default: '')*
+* ``` maxFileSize ``` - max size of file *(optional, default: 5000000)*
+* ``` uploadProgressHandler ``` - ``` function(event) ```
+	* ``` event ``` - event object, event.loaded is loaded bytes, event.total is total bytes
+	* **this** is jquery object for drag'n'drop element
+* ``` okHandler ``` - ``` function(responseText, settings) ```, handler when uploading is successful
+	* ```responseText``` - response from server
+	* ```settings``` - object passed to uploadDragNDrop constructor
+	* **this** is jquery object for drag'n'drop element,
+* ``` errorHandler ``` - ``` function(settings, typeOfError) ``` - handler when uploading is not successful
+	* ```settings``` - object passed to uploadDragNDrop constructor
+	* ```error``` - type of error:
+		- ``` $.fn.uploadDragNDrop.errors.FILE_IS_TOO_BIG ``` - file is too big
+		- ``` $.fn.uploadDragNDrop.errors.UPLOAD_ERROR ``` - upload error
+	* **this** is jquery object for drag'n'drop element 
+* ``` paramName ``` - parameter name in http request of file attachment *(optional, default: 'file')*
 
 ##Full example:
 ```html
@@ -51,7 +78,7 @@ $('#dropZone').uploadDragNDrop({
 					var percent = parseInt(event.loaded / event.total * 100);
 					this.text('Loading: ' + percent + '%');
 				},
-				'okHandler' : function (settings) {					
+				'okHandler' : function (responseText, settings) {					
 					this.removeClass(settings['errorCssClass']);
 					this.text('Files has been uploaded!');
 				},

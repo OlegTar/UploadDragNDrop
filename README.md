@@ -7,6 +7,7 @@ $('#dropZone').uploadDragNDrop({
 	'upload' : 'upload.php', 
 });
 ```
+**OR**
 ```javascript
 $('#dropZone').uploadDragNDrop({
 	'upload' : 'upload.php', 
@@ -15,6 +16,7 @@ $('#dropZone').uploadDragNDrop({
 	}
 });
 ```
+**OR**
 ```javascript
 $('#dropZone').uploadDragNDrop({
 	'upload' : 'upload.php', 
@@ -26,7 +28,7 @@ $('#dropZone').uploadDragNDrop({
 });
 ```
 ##Parameters
-* ``` upload ``` — url for uploading files, *requrired*
+* ``` upload ``` - url for uploading files, *requrired*
 * ``` hoverCssClass ``` - css class when you drag file over html element *(optional, default: '')*
 * ``` errorCssClass ``` - css class when error happens (also you can define own error handler function) *(optional, default: '')*
 * ``` maxFileSize ``` - max size of file *(optional, default: 5000000)*

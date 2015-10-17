@@ -7,7 +7,7 @@ $('#dropZone').uploadDragNDrop({
 	'upload' : 'upload.php', 
 });
 ```
-**OR**
+
 ```javascript
 $('#dropZone').uploadDragNDrop({
 	'upload' : 'upload.php', 
@@ -16,7 +16,7 @@ $('#dropZone').uploadDragNDrop({
 	}
 });
 ```
-**OR**
+
 ```javascript
 $('#dropZone').uploadDragNDrop({
 	'upload' : 'upload.php', 

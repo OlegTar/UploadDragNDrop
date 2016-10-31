@@ -56,7 +56,7 @@
 		}
 
 		this.bind('dragover', function (event) {
-			if (!event.originalEvent.dataTransfer.types.contains("Files")) {
+			if (event.originalEvent.dataTransfer.types.indexOf("Files") === -1) {
 				return false;
 			}
 			if (settings['hoverCssClass'] !== '') {
